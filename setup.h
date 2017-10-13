@@ -10,7 +10,7 @@
 #ifndef __SETUP_H__
 #define __SETUP_H__
 
-#include "main.h"
+#include "card.h"
 
 void mix_deck(card* deck);
 int equal_decks(card* original, card* manipulated);

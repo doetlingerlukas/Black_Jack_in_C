@@ -1,5 +1,5 @@
 CC = gcc
-OBJ = main.o setup.o
+OBJ = main.o setup.o card.o
 CFLAGS = -Wall -Wextra -Werror 
 
 blackjack: $(OBJ)

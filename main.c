@@ -12,7 +12,7 @@
 #include <time.h>
 #include <string.h>
 
-#include "main.h"
+#include "card.h"
 #include "setup.h"
 
 void mix_cards(char* cards);
@@ -37,6 +37,26 @@ int main(void){
 	for(int i = 0; i < 52; i++){
 		printf("%c", deck[i].number);
 	}
+	printf("\n");
+	
+	card got;
+	for(int j = 0; j < 8; j++){
+		got = get_card(deck);
+	
+		printf("%c\n", got.number);
+	}
+	
+	for(int i = 0; i < 52; i++){
+		printf("%c", deck[i].number);
+	}
+	printf("\n");
+	
+	put_card_back(deck, got);
+	
+	for(int i = 0; i < 52; i++){
+		printf("%c", deck[i].number);
+	}
+	printf("\n");
 	
 	free(deck);
 

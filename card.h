@@ -1,14 +1,14 @@
 /******************************************************************
 *
-* main.h
+* card.h
 * 
 * A Black Jack Game written in C.
 * By Lukas Dötlinger
 *
 *******************************************************************/
 
-#ifndef __MAIN_H__
-#define __MAIN_H__
+#ifndef __CARD_H__
+#define __CARD_H__
 
 
 typedef struct card{
@@ -17,5 +17,7 @@ typedef struct card{
 	int color_key;
 } card;
 
+card get_card(card* deck);
+void put_card_back(card* deck, card c);
 
-#endif // __MAIN_H_
+#endif // __CARD_H_

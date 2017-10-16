@@ -139,7 +139,7 @@ void fill_card_deck(card* deck){
 		deck[length].number = 'K';
 		deck[length].value = 10;
 		deck[length].color_key = color_val;
-		lenght++;
+		length++;
 		
 		color_val++;
 	}

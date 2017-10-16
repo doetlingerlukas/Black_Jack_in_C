@@ -10,6 +10,7 @@
 #ifndef __CARD_H__
 #define __CARD_H__
 
+#include "common.h"
 
 typedef struct card {
 	char number;

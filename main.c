@@ -58,6 +58,14 @@ int main(void){
 	}
 	printf("\n");
 	
+	mix_deck(deck);
+	
+	for(int i = 0; i < 52; i++){
+		printf("%c", deck[i].number);
+	}
+	printf("\n");
+	
+	
 	free(deck);
 
 }

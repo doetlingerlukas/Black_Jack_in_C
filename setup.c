@@ -15,15 +15,35 @@
 #include "setup.h"
 
 
+/* return amount of cards in deck */
+int get_cardamount_of_deck(card* deck){
+	int max = 0;
+	
+	for(int i = 0; i < 52; i++){
+		if(deck[i].number == '0'){
+			max = i;
+			i = 52;
+		}
+	}
+	if(max == 0){
+		max = 51;
+	}
+	
+	return max;
+}
+
 /* function to scramble the cards inside a deck */
 void mix_deck(card* deck){
+	int amount = get_cardamount_of_deck(deck);
+	printf("%d\n", amount);
+	
 	card* original_deck = malloc(sizeof(card)*13*4);
 	memcpy(original_deck, deck, sizeof(card)*13*4);
 	card temp;
 	
 	while(equal_decks(original_deck, deck) > 5){
-		for(int i = 0; i < 52; i++){
-			int r = rand() % 52;
+		for(int i = 0; i < amount; i++){
+			int r = rand() % amount;
 			temp = deck[i];
 			deck[i] = deck[r];
 			deck[r] = temp;
@@ -36,9 +56,10 @@ void mix_deck(card* deck){
 
 /* function that returns number of equal value cards in deck */
 int equal_decks(card* original, card* manipulated){
+	int amount = get_cardamount_of_deck(original);
 	int counter = 0;
 	
-	for(int i = 0; i < 52; i++){
+	for(int i = 0; i < amount; i++){
 		if(original[i].number == manipulated[i].number){
 			counter++;
 		}

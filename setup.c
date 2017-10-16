@@ -15,6 +15,20 @@
 #include "setup.h"
 
 
+/* initializes a card deck */
+card* init_deck(int size){
+	card* to_return = malloc(sizeof(card)*size);
+	
+	for(int i = 0; i < size; i++){
+		to_return[i].number = '0';
+		to_return[i].value = 0;
+		to_return[i].color_key = 0;
+	}
+	
+	return to_return;
+}
+
+
 /* return amount of cards in deck */
 int get_cardamount_of_deck(card* deck){
 	int max = 0;
@@ -35,7 +49,6 @@ int get_cardamount_of_deck(card* deck){
 /* function to scramble the cards inside a deck */
 void mix_deck(card* deck){
 	int amount = get_cardamount_of_deck(deck);
-	printf("%d\n", amount);
 	
 	card* original_deck = malloc(sizeof(card)*13*4);
 	memcpy(original_deck, deck, sizeof(card)*13*4);

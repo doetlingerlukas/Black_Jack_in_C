@@ -12,6 +12,7 @@
 
 #include "card.h"
 
+card* init_deck(int size);
 int get_cardamount_of_deck(card* deck);
 void mix_deck(card* deck);
 int equal_decks(card* original, card* manipulated);

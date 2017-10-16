@@ -17,7 +17,9 @@ typedef struct card{
 	int color_key;
 } card;
 
+void dispense_cards(card* deck, card* bank, card* player);
+void buy(card* deck, card* local_deck);
 card get_card(card* deck);
-void put_card_back(card* deck, card c);
+void put_card(card* deck, card c);
 
 #endif // __CARD_H_

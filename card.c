@@ -15,8 +15,25 @@
 #include "card.h"
 
 
-/* puts a card back to a deck */
-void put_card_back(card* deck, card c){
+/* distributes cards, which is the first operation of every game */
+void dispense_cards(card* deck, card* bank, card* player){
+	/** give card to bank **/
+	put_card(bank, get_card(deck));
+	
+	/** give two cards to player **/
+	put_card(player, get_card(deck));
+	put_card(player, get_card(deck));
+}
+
+
+/* get a card and put it to the local deck */
+void buy(card* deck, card* local_deck){
+	put_card(local_deck, get_card(deck));
+}
+
+
+/* puts a card to a deck */
+void put_card(card* deck, card c){
 	int found = 0;
 	int count = 0;
 	
@@ -26,7 +43,8 @@ void put_card_back(card* deck, card c){
 		}
 		count++;
 		if(count == 55){
-			perror("No space to put back card !\n");
+			perror("No space to put card !\n");
+			return;
 		}
 	}
 	

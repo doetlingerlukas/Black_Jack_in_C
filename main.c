@@ -26,7 +26,9 @@ int main(void){
 	card* deck = malloc(sizeof(card)*13*4);
 	
 	fill_card_deck(deck);
+	mix_deck(deck);
 	
+	/* to be put into a test file
 	for(int i = 0; i < 52; i++){
 		printf("%c", deck[i].number);
 	}
@@ -51,7 +53,7 @@ int main(void){
 	}
 	printf("\n");
 	
-	put_card_back(deck, got);
+	put_card(deck, got);
 	
 	for(int i = 0; i < 52; i++){
 		printf("%c", deck[i].number);
@@ -63,11 +65,27 @@ int main(void){
 	for(int i = 0; i < 52; i++){
 		printf("%c", deck[i].number);
 	}
+	printf("\n");*/
+	
+	card* bank = init_deck(8);
+	card* player = init_deck(8);
+	
+	dispense_cards(deck, bank, player);
+	
+	for(int i = 0; i < 8; i++){
+		printf("%c", bank[i].number);
+	}
+	printf("\n");
+	for(int i = 0; i < 8; i++){
+		printf("%c", player[i].number);
+	}
 	printf("\n");
 	
-	
+	free(bank);
+	free(player);
 	free(deck);
 
+	return EXIT_SUCCESS;
 }
 
 

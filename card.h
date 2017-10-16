@@ -11,7 +11,7 @@
 #define __CARD_H__
 
 
-typedef struct card{
+typedef struct card {
 	char number;
 	int value;
 	int color_key;

@@ -10,6 +10,7 @@
 #ifndef __SETUP_H__
 #define __SETUP_H__
 
+#include "common.h"
 #include "card.h"
 
 card* init_deck(int size);

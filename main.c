@@ -12,57 +12,58 @@
 #include <time.h>
 #include <string.h>
 
+#include "common.h"
 #include "card.h"
 #include "setup.h"
 
 void mix_cards(char* cards);
 int equal_cards(char* cards_original, char* cards_manipulated);
 
-int main(void){
+int main(void) {
 	
 	srand(time(NULL));
 	
 	
-	card* deck = malloc(sizeof(card)*13*4);
+	card* deck = malloc(sizeof(card) * CARD_NUMBER);
 	
 	fill_card_deck(deck);
 	mix_deck(deck);
 	
 	/* to be put into a test file
-	for(int i = 0; i < 52; i++){
+	for(int i = 0; i < 52; i++) {
 		printf("%c", deck[i].number);
 	}
 	printf("\n");
 	
 	mix_deck(deck);
 	
-	for(int i = 0; i < 52; i++){
+	for(int i = 0; i < 52; i++) {
 		printf("%c", deck[i].number);
 	}
 	printf("\n");
 	
 	card got;
-	for(int j = 0; j < 8; j++){
+	for(int j = 0; j < 8; j++) {
 		got = get_card(deck);
 	
 		printf("%c\n", got.number);
 	}
 	
-	for(int i = 0; i < 52; i++){
+	for(int i = 0; i < 52; i++) {
 		printf("%c", deck[i].number);
 	}
 	printf("\n");
 	
 	put_card(deck, got);
 	
-	for(int i = 0; i < 52; i++){
+	for(int i = 0; i < 52; i++) {
 		printf("%c", deck[i].number);
 	}
 	printf("\n");
 	
 	mix_deck(deck);
 	
-	for(int i = 0; i < 52; i++){
+	for(int i = 0; i < 52; i++) {
 		printf("%c", deck[i].number);
 	}
 	printf("\n");*/
@@ -72,11 +73,11 @@ int main(void){
 	
 	dispense_cards(deck, bank, player);
 	
-	for(int i = 0; i < 8; i++){
+	for (int i = 0; i < 8; i++) {
 		printf("%c", bank[i].number);
 	}
 	printf("\n");
-	for(int i = 0; i < 8; i++){
+	for (int i = 0; i < 8; i++) {
 		printf("%c", player[i].number);
 	}
 	printf("\n");

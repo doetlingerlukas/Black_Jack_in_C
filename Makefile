@@ -7,4 +7,5 @@ blackjack: $(OBJ)
 
 clean:
 	rm -f *.o blackjack
+
 .PHONY: all clean

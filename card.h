@@ -10,8 +10,9 @@
 #ifndef __CARD_H__
 #define __CARD_H__
 
+#include "common.h"
 
-typedef struct card{
+typedef struct card {
 	char number;
 	int value;
 	int color_key;

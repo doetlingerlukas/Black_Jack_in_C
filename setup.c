@@ -15,6 +15,19 @@
 #include "setup.h"
 
 
+/* function to print a deck without the empty values */
+void print_deck(int size, card* deck){
+	for(int i = 0; i < size; i++){
+		if(deck[i].number != '0'){
+			printf("%c", deck[i].number);
+		} else {
+			i = size;
+		}
+	}
+	printf("\n");
+}
+
+
 /* initializes a card deck */
 card* init_deck(int size){
 	card* to_return = malloc(sizeof(card)*size);

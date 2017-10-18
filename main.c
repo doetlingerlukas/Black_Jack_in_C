@@ -72,14 +72,9 @@ int main(void){
 	
 	dispense_cards(deck, bank, player);
 	
-	for(int i = 0; i < 8; i++){
-		printf("%c", bank[i].number);
-	}
-	printf("\n");
-	for(int i = 0; i < 8; i++){
-		printf("%c", player[i].number);
-	}
-	printf("\n");
+	print_deck(8, bank);
+	print_deck(8, player);
+	
 	
 	free(bank);
 	free(player);

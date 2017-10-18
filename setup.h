@@ -12,6 +12,7 @@
 
 #include "card.h"
 
+void print_deck(int size, card* deck);
 card* init_deck(int size);
 int get_cardamount_of_deck(card* deck);
 void mix_deck(card* deck);

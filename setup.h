@@ -12,6 +12,7 @@
 
 #include "card.h"
 
+int sum_deck(card* deck);
 void print_deck(int size, card* deck);
 card* init_deck(int size);
 int get_cardamount_of_deck(card* deck);

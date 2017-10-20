@@ -17,6 +17,10 @@ typedef struct card{
 	int color_key;
 } card;
 
+
+int verify_red_hand(card* deck);
+int is_red_card(card c);
+char get_color_of_card(int color_val);
 void dispense_cards(card* deck, card* bank, card* player);
 void buy(card* deck, card* local_deck);
 card get_card(card* deck);

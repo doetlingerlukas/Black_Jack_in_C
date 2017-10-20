@@ -15,6 +15,47 @@
 #include "card.h"
 
 
+/* returns 1 if player got a red hand, 0 otherwise */
+int verify_red_hand(card* deck){
+	if(is_red_card(deck[0]) && is_red_card(deck[1])){
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
+
+/* returns 1 if a card has a red color, 0 otherwise */
+int is_red_card(card c){
+	if(c.color_key == 2 || c.color_key == 3){
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
+
+/* returns the char representing the card color 
+ * c -> club
+ * d -> diamond
+ * h -> heart
+ * s -> spade */
+char get_color_of_card(int color_val){
+	switch(color_val){
+		case 1 : 
+			return 'c';
+		case 2 : 
+			return 'd';
+		case 3 : 
+			return 'h';
+		case 4 : 
+			return 's';
+	}
+	
+	return '0';
+}
+
+
 /* distributes cards, which is the first operation of every game */
 void dispense_cards(card* deck, card* bank, card* player){
 	/** give card to bank **/

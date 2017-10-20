@@ -15,6 +15,20 @@
 #include "setup.h"
 
 
+
+/* return the sum of card values in a deck */
+int sum_deck(card* deck){
+	int size = get_cardamount_of_deck(deck);
+	int result = 0;
+	
+	for(int i = 0; i < size; i++){
+		result += deck[i].value;
+	}
+	return result;
+}
+
+
+
 /* function to print a deck without the empty values */
 void print_deck(int size, card* deck){
 	for(int i = 0; i < size; i++){
@@ -103,55 +117,55 @@ void fill_card_deck(card* deck){
 	for(int i = 0; i < 4; i++){
 		deck[lenght].number = 'A';
 		deck[lenght].value = 11;
-		deck[lenght].color_key = color_val;
+		deck[lenght].color_key = i+1;
 		lenght++;
 		deck[lenght].number = '2';
 		deck[lenght].value = 2;
-		deck[lenght].color_key = color_val;
+		deck[lenght].color_key = i+1;
 		lenght++;
 		deck[lenght].number = '3';
 		deck[lenght].value = 3;
-		deck[lenght].color_key = color_val;
+		deck[lenght].color_key = i+1;
 		lenght++;
 		deck[lenght].number = '4';
 		deck[lenght].value = 4;
-		deck[lenght].color_key = color_val;
+		deck[lenght].color_key = i+1;
 		lenght++;
 		deck[lenght].number = '5';
 		deck[lenght].value = 5;
-		deck[lenght].color_key = color_val;
+		deck[lenght].color_key = i+1;
 		lenght++;
 		deck[lenght].number = '6';
 		deck[lenght].value = 6;
-		deck[lenght].color_key = color_val;
+		deck[lenght].color_key = i+1;
 		lenght++;
 		deck[lenght].number = '7';
 		deck[lenght].value = 7;
-		deck[lenght].color_key = color_val;
+		deck[lenght].color_key = i+1;
 		lenght++;
 		deck[lenght].number = '8';
 		deck[lenght].value = 8;
-		deck[lenght].color_key = color_val;
+		deck[lenght].color_key = i+1;
 		lenght++;
 		deck[lenght].number = '9';
 		deck[lenght].value = 9;
-		deck[lenght].color_key = color_val;
+		deck[lenght].color_key = i+1;
 		lenght++;
 		deck[lenght].number = 'Z';
 		deck[lenght].value = 10;
-		deck[lenght].color_key = color_val;
+		deck[lenght].color_key = i+1;
 		lenght++;
 		deck[lenght].number = 'B';
 		deck[lenght].value = 10;
-		deck[lenght].color_key = color_val;
+		deck[lenght].color_key = i+1;
 		lenght++;
 		deck[lenght].number = 'D';
 		deck[lenght].value = 10;
-		deck[lenght].color_key = color_val;
+		deck[lenght].color_key = i+1;
 		lenght++;
 		deck[lenght].number = 'K';
 		deck[lenght].value = 10;
-		deck[lenght].color_key = color_val;
+		deck[lenght].color_key = i+1;
 		lenght++;
 		
 		color_val++;

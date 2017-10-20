@@ -75,6 +75,9 @@ int main(void){
 	print_deck(8, bank);
 	print_deck(8, player);
 	
+	printf("%d\n", sum_deck(player));
+	printf("%c, %c\n", get_color_of_card(player[0].color_key), 
+		get_color_of_card(player[1].color_key));
 	
 	free(bank);
 	free(player);
@@ -83,5 +86,12 @@ int main(void){
 	return EXIT_SUCCESS;
 }
 
-
+void decision(card* player){
+	/*
+	printf("Card or stay? (c/s)");
+	char desicion;
+	scanf("%c", desicion);
+	*/
+	get_card(player);
+}
 

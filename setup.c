@@ -14,6 +14,8 @@
 
 #include "setup.h"
 
+#define ANSI_COLOR_RED   "\x1b[31m"
+#define ANSI_COLOR_RESET "\x1b[0m"
 
 
 /* return the sum of card values in a deck */
@@ -33,7 +35,12 @@ int sum_deck(card* deck){
 void print_deck(int size, card* deck){
 	for(int i = 0; i < size; i++){
 		if(deck[i].number != '0'){
-			printf("%c", deck[i].number);
+			if(is_red_card(deck[i])){
+				printf(ANSI_COLOR_RED "%c" 
+					ANSI_COLOR_RESET, deck[i].number);
+			} else {
+				printf("%c", deck[i].number);
+			}
 		} else {
 			i = size;
 		}

@@ -10,6 +10,7 @@
 #ifndef __CARD_H__
 #define __CARD_H__
 
+#include <stdbool.h>
 
 typedef struct card{
 	char number;
@@ -17,9 +18,16 @@ typedef struct card{
 	int color_key;
 } card;
 
+typedef struct person{
+	card* deck;
+	int finished;
+} person;
 
+
+void clear_buffer();
+int decide(card* deck, person player);
 int verify_red_hand(card* deck);
-int is_red_card(card c);
+bool is_red_card(card c);
 char get_color_of_card(int color_val);
 void dispense_cards(card* deck, card* bank, card* player);
 void buy(card* deck, card* local_deck);

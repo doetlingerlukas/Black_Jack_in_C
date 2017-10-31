@@ -11,8 +11,32 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <stdbool.h>
 
 #include "card.h"
+
+
+/* function to clear the input buffer */
+void clear_buffer(){    
+  while ( getchar() != '\n' );
+}
+
+
+/* function to let the player decide wether he wants to buy or not */
+int decide(card* deck, person player){
+	
+	printf("Card or stay? (c/s): ");
+	char desicion;
+	desicion = getchar();
+	if(desicion == 'c'){
+		buy(deck, player.deck);
+		clear_buffer();
+		return 0;
+	} else {
+		clear_buffer();
+		return 1;
+	}
+}
 
 
 /* returns 1 if player got a red hand, 0 otherwise */
@@ -26,11 +50,11 @@ int verify_red_hand(card* deck){
 
 
 /* returns 1 if a card has a red color, 0 otherwise */
-int is_red_card(card c){
+bool is_red_card(card c){
 	if(c.color_key == 2 || c.color_key == 3){
-		return 1;
+		return true;
 	} else {
-		return 0;
+		return false;
 	}
 }
 

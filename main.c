@@ -15,13 +15,10 @@
 #include "card.h"
 #include "setup.h"
 
-void mix_cards(char* cards);
-int equal_cards(char* cards_original, char* cards_manipulated);
 
 int main(void){
 	
 	srand(time(NULL));
-	
 	
 	card* deck = malloc(sizeof(card)*13*4);
 	
@@ -67,31 +64,35 @@ int main(void){
 	}
 	printf("\n");*/
 	
-	card* bank = init_deck(8);
-	card* player = init_deck(8);
+	person bank;
+	person player;
 	
-	dispense_cards(deck, bank, player);
+	bank.deck = init_deck(8);
+	player.deck = init_deck(8);
 	
-	print_deck(8, bank);
-	print_deck(8, player);
+	bank.finished = 0;
+	player.finished = 0;
 	
-	printf("%d\n", sum_deck(player));
-	printf("%c, %c\n", get_color_of_card(player[0].color_key), 
-		get_color_of_card(player[1].color_key));
+	dispense_cards(deck, bank.deck, player.deck);
 	
-	free(bank);
-	free(player);
+	printf("Bank cards: ");
+	print_deck(8, bank.deck);
+	printf("Your cards: ");
+	print_deck(8, player.deck);
+	
+	// player buying 
+	while(sum_deck(player.deck) <= 21 && player.finished == 0){
+		player.finished = decide(deck, player);
+		print_deck(8, player.deck);
+	}
+	
+	
+	
+	free(bank.deck);
+	free(player.deck);
 	free(deck);
 
 	return EXIT_SUCCESS;
 }
 
-void decision(card* player){
-	/*
-	printf("Card or stay? (c/s)");
-	char desicion;
-	scanf("%c", desicion);
-	*/
-	get_card(player);
-}
 

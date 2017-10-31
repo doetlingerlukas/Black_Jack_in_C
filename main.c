@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <unistd.h>
 
 #include "card.h"
 #include "setup.h"
@@ -81,12 +82,19 @@ int main(void){
 	print_deck(8, player.deck);
 	
 	// player buying 
-	while(sum_deck(player.deck) <= 21 && player.finished == 0){
+	while(sum_deck(player.deck) < 21 && player.finished == 0){
 		player.finished = decide(deck, player);
+		printf("Your cards: ");
 		print_deck(8, player.deck);
 	}
 	
-	
+	// bank buying
+	while(sum_deck(bank.deck) <= 16){
+		buy(deck, bank.deck);
+		printf("Bank cards: ");
+		print_deck(8, bank.deck);
+		sleep(1);
+	}
 	
 	free(bank.deck);
 	free(player.deck);

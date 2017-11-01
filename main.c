@@ -89,7 +89,8 @@ int main(void){
 	}
 	
 	// bank buying
-	while(sum_deck(bank.deck) <= 16){
+	while(sum_deck(bank.deck) < 16){
+		sleep(1);
 		buy(deck, bank.deck);
 		printf("Bank cards: ");
 		print_deck(8, bank.deck);

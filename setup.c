@@ -18,6 +18,19 @@
 #define ANSI_COLOR_RESET "\x1b[0m"
 
 
+/* function to get the amount of aces in a deck*/
+int number_of_aces(card* deck){
+	int ret_val = 0;
+		
+	for(int i = 0; i < get_cardamount_of_deck(deck); i++){
+		if(deck[i].number == 'A'){
+			ret_val++;
+		}
+	}
+	return ret_val;
+}
+
+
 /* return the sum of card values in a deck */
 int sum_deck(card* deck){
 	int size = get_cardamount_of_deck(deck);
@@ -26,6 +39,13 @@ int sum_deck(card* deck){
 	for(int i = 0; i < size; i++){
 		result += deck[i].value;
 	}
+	
+	int aces = number_of_aces(deck);
+	while(result > 21 && aces > 0){
+		result -= 10;
+		aces--;
+	}
+
 	return result;
 }
 

@@ -12,6 +12,7 @@
 
 #include "card.h"
 
+int number_of_aces(card* deck);
 int sum_deck(card* deck);
 void print_deck(int size, card* deck);
 card* init_deck(int size);

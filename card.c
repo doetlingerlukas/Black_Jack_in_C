@@ -14,6 +14,16 @@
 #include <stdbool.h>
 
 #include "card.h"
+#include "setup.h"
+
+
+/* function to verify if a player has a black jack */
+bool verify_black_jack(card* deck){
+	if((get_cardamount_of_deck(deck) == 2) && (sum_deck(deck) == 21)){
+		return true;
+	}
+	return false;
+}
 
 
 /* function to clear the input buffer */

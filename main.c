@@ -26,44 +26,6 @@ int main(void){
 	fill_card_deck(deck);
 	mix_deck(deck);
 	
-	/* to be put into a test file
-	for(int i = 0; i < 52; i++){
-		printf("%c", deck[i].number);
-	}
-	printf("\n");
-	
-	mix_deck(deck);
-	
-	for(int i = 0; i < 52; i++){
-		printf("%c", deck[i].number);
-	}
-	printf("\n");
-	
-	card got;
-	for(int j = 0; j < 8; j++){
-		got = get_card(deck);
-	
-		printf("%c\n", got.number);
-	}
-	
-	for(int i = 0; i < 52; i++){
-		printf("%c", deck[i].number);
-	}
-	printf("\n");
-	
-	put_card(deck, got);
-	
-	for(int i = 0; i < 52; i++){
-		printf("%c", deck[i].number);
-	}
-	printf("\n");
-	
-	mix_deck(deck);
-	
-	for(int i = 0; i < 52; i++){
-		printf("%c", deck[i].number);
-	}
-	printf("\n");*/
 	
 	person bank;
 	person player;
@@ -81,6 +43,11 @@ int main(void){
 	printf("Your cards: ");
 	print_deck(8, player.deck);
 	
+	// 
+	if(verify_black_jack(player.deck)){
+		printf("You got a BlackJack\n");
+	}
+	
 	// player buying 
 	while(sum_deck(player.deck) < 21 && player.finished == 0){
 		player.finished = decide(deck, player);
@@ -96,6 +63,22 @@ int main(void){
 		print_deck(8, bank.deck);
 		sleep(1);
 	}
+	
+	printf("******************************************************\n");
+	int sum_bank = sum_deck(bank.deck);
+	int sum_player = sum_deck(player.deck);
+	printf("Bank: %d / You: %d\n", sum_bank, sum_player);
+	
+	if (sum_bank > 21 && sum_player <= 21){
+		printf("You won!\n");
+	} else if(sum_bank > sum_player && sum_bank <= 21){
+		printf("You lost!\n");
+	} else if(sum_bank < sum_player && sum_player <= 21){
+		printf("You won!\n");
+	} else {
+		printf("Draw!\n");
+	}
+	
 	
 	free(bank.deck);
 	free(player.deck);

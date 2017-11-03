@@ -24,6 +24,7 @@ typedef struct person{
 } person;
 
 
+bool verify_black_jack(card* deck);
 void clear_buffer();
 int decide(card* deck, person player);
 int verify_red_hand(card* deck);
